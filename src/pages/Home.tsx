@@ -31,7 +31,7 @@ useEffect(()=>{
     <div>
         <Header/>
         <AddTodo/>
-        <TodoList/>
+        <TodoList todos ={todos}/>
     </div>
   )
 }
