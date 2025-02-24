@@ -30,6 +30,38 @@ const Home = () => {
     setTodos(data)
   };
 
+
+
+//   type AddFn=(task:string)=>Promise<void>
+// Bu type bilgisi typescript.d.ts
+
+  const addTodo:AddFn=async(task)=>{
+    try {
+        await axios.post(url,{task,isDone:false})
+        getTodo()
+    } catch (error) {
+        console.log(error)
+    }
+  }
+
+  const toggleTodo:ToggleFn=async(todo)=>{
+    try {
+        await axios.put(`${url}/${todo.id}`,{...todo,isDone:!todo.isDone})
+        getTodo()
+    } catch (error) {
+        console.log(error)
+    }
+  }
+
+ const deleteTodo:DeleteFn=async(id)=>{
+    try {
+        await axios.delete(`${url}/${id}`)
+        getTodo()
+    } catch (error) {
+        console.log(error)
+    }
+ }
+
   useEffect(() => {
     getTodo();
   }, []);
@@ -37,8 +69,8 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <AddTodo />
-      <TodoList todos={todos} />
+      <AddTodo addTodo={addTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
     </div>
   );
 };
