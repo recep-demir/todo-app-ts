@@ -1,12 +1,55 @@
+import { Grid, Typography } from "@mui/material";
 
-
-
-
-
-const TodoList = (todos) => {
-  return (
-    <div>TodoList</div>
-  )
+interface ITodoList {
+  todos: ITodo[];
 }
 
-export default TodoList
+const TodoList:React.FC<ITodoList>= (todos) => {
+
+    const inProgress = todos.filter((todo) => todo.isDone===false);
+  return (
+    <Grid
+      container
+      spacing={2}
+      sx={{
+        justifyContent: "center",
+        alignItems: "flex-start",
+        mt: 3,
+      }}
+    >
+      <Grid
+        item
+        xs={12}
+        sm={10}
+        md={5}
+        sx={{
+          margin:"1rem",
+          minHeight: "350px",
+          maxHeight: "350px",
+          overflow: "auto",
+          border: "1px solid purple",
+          borderRadius: "0.5rem",
+          boxShadow: "0px 4px 10px rgba(0,0,0,0.1)",
+          p: 2,
+          transition: "transform 0.2s ease-in-out",
+          "&:hover": {
+            transform: "scale(1.02)",
+          },
+        }}
+      >
+             <Typography color="secondary" align="center" variant="h5" sx={{ mb: 1 }}>
+          In Progress Todos
+        </Typography>
+        {inProgress.length ? (
+            inProgress.map((inp) => (
+                <p>{inp.task}</p>
+        ) : (
+            <Typography></Typography>
+        )
+        }
+      </Grid>
+      </Grid>
+  );
+};
+
+export default TodoList;

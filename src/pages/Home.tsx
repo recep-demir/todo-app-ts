@@ -1,39 +1,46 @@
-import axios from "axios"
-import AddTodo from "../components/AddTodo"
-import Header from "../components/Header"
-import TodoList from "../components/TodoList"
-import { useEffect, useState } from "react"
-
-
+import Header from "./../components/Header";
+import AddTodo from "./../components/AddTodo";
+import TodoList from "./../components/TodoList";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Home = () => {
-const url= "https://67bcb04bed4861e07b3b91af.mockapi.io/task/task/"
+  const url = "https://6350438378563c1d82bde74a.mockapi.io/api/task"; //https://mockapi.io/
 
-interface ITodo{
+  interface ITodo{
     id:string;
     isDone:boolean;
     task:string;
-}
+  }
 
-const[todos,setTodos]=useState<ITodo[]>([])
 
-const getTodo = async ()=>{
-        const {data} =await axios(url)
-        console.log(data)
-        setTodos(data)
-    }
+  const [todos, setTodos] = useState<ITodo[]>([]);
 
-useEffect(()=>{
-    getTodo()
-    },[])
+//   const [todos, setTodos] = useState({
+//     id:"",
+//     isDone:false,
+//     task:""
+//   });
+
+
+
+  const getTodo = async () => {
+    const { data } = await axios(url);
+    console.log(data);
+    setTodos(data)
+  };
+
+  useEffect(() => {
+    getTodo();
+  }, []);
 
   return (
     <div>
-        <Header/>
-        <AddTodo/>
-        <TodoList todos ={todos}/>
+      <Header />
+      <AddTodo />
+      <TodoList todos={todos} />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

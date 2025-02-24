@@ -3,3 +3,9 @@ interface ITodoList{
     isDone:boolean;
     id:string;
 }
+
+interface ITodo{
+    id:string;
+    isDone:boolean;
+    task:string;
+}

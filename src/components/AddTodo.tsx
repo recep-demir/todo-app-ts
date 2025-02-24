@@ -5,7 +5,7 @@ const AddTodo = () => {
 
     const [task, setTask] = useState("");
 
-    const handleChange = (e) => {
+    const handleChange = (e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setTask(e.target.value)
     }
 
