@@ -3,6 +3,10 @@ import Header from "../components/Header"
 import TodoList from "../components/TodoList"
 
 const Home = () => {
+
+    const getTodo = ()=>{
+        
+    }
   return (
     <div>
         <Header/>
