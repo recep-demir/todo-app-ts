@@ -1,50 +1,101 @@
-# React + TypeScript + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a Todo application developed using React and TypeScript. It is designed with Material UI components and optimized with Vite.
 
-Currently, two official plugins are available:
+## Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The key technologies used in this project:
 
-## Expanding the ESLint configuration
+- React 19
+- TypeScript
+- Vite
+- Material UI (@mui/material & @mui/icons-material)
+- Axios
+- ESLint
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+Follow these steps to run the project locally:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+# Clone the repository
+git clone https://github.com/recep-demir/todo-app-ts.git
+
+# Navigate to the project folder
+cd todo-app-ts
+
+# Install dependencies
+yarn install  # or npm install
+
+# Start the development server
+yarn dev  # or npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Features
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Users can add new tasks.
+- Added tasks are listed.
+- Tasks can be completed or deleted.
+- Responsive design.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+##  Project Structure
+
+```plaintext
+src/
+│── components/
+│   ├── AddTodo.tsx
+│   ├── Header.tsx
+│   ├── TodoList.tsx
+│   ├── TodoListItems.tsx
+│── pages/
+│   ├── Home.tsx
+│── App.tsx
+│── App.css
+│── main.tsx
+│── vite.config.ts
 ```
+
+### Components
+
+- **AddTodo.tsx**: Allows users to add new tasks.
+- **Header.tsx**: Contains the application header bar.
+- **TodoList.tsx**: Lists existing tasks.
+- **TodoListItems.tsx**: Represents each task item.
+
+### Pages
+
+- **Home.tsx**: The main page component that integrates all components.
+
+### Other Files
+
+- **App.tsx**: The main application component.
+- **App.css**: General styles.
+
+##  Development
+
+Run ESLint with the following command to maintain code quality:
+
+```sh
+yarn lint  # or npm run lint
+```
+
+##  Live Preview
+
+To build and preview the generated package:
+
+```sh
+yarn build && yarn preview  # or npm run build && npm run preview
+```
+
+##  Deployment
+
+Use the `build` folder to deploy the project to a hosting service.
+
+##  Contribution
+
+If you want to contribute, please open an **issue** first. Then, submit a PR with your suggested changes.
+
+## License
+
+This project is released under the MIT license.
+
