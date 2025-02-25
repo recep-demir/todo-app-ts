@@ -1,6 +1,5 @@
 import { Typography } from "@mui/material"
 
-
 const Header = () => {
   return (
     <Typography

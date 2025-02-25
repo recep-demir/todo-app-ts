@@ -13,7 +13,6 @@ const Home = () => {
     task:string;
   }
 
-
   const [todos, setTodos] = useState<ITodo[]>([]);
 
 //   const [todos, setTodos] = useState({
@@ -22,14 +21,11 @@ const Home = () => {
 //     task:""
 //   });
 
-
-
   const getTodo = async () => {
     const { data } = await axios(url);
     console.log(data);
     setTodos(data)
   };
-
 
 
 //   type AddFn=(task:string)=>Promise<void>
