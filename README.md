@@ -1,3 +1,4 @@
+[Live Demo](https://todo-app-ts01.netlify.app/)
 ## Screenshots
 
 ![App Screenshot](./public/image.png)
