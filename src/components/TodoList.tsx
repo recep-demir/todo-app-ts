@@ -81,7 +81,8 @@ const TodoList:React.FC<ITodoList>= ({todos,toggleTodo,deleteTodo}) => {
         {
             completed.length ? (
                 completed.map((todo)=>(
-                    <TodoListItems  key={todo.id} todo={todo}  />
+                  <TodoListItems  key={todo.id} todo={todo} toggleTodo={toggleTodo}  deleteTodo={deleteTodo} />
+
                 ))
             ) :(
                 <Typography> No Task</Typography>

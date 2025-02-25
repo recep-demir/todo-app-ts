@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const url = "https://6350438378563c1d82bde74a.mockapi.io/api/task"; //https://mockapi.io/
+  const url = "https://6350438378563c1d82bde74a.mockapi.io/api/task";
 
   interface ITodo{
     id:string;
