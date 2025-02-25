@@ -1,3 +1,6 @@
+## Screenshots
+
+![App Screenshot](./public/image.png)
 # Todo App
 
 This project is a Todo application developed using React and TypeScript. It is designed with Material UI components and optimized with Vite.

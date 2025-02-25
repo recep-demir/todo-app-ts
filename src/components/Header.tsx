@@ -7,7 +7,7 @@ const Header = () => {
     variant="h2"
     align="center"
     sx={{
-          background: "linear-gradient(90deg, #ff416c, #ff4b2b)",
+          background: "linear-gradient(90deg, #7310ec, #ff2bbf)",
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
         fontWeight: "bold",

@@ -5,7 +5,6 @@ interface IAddTodo{
     addTodo:AddFn
 }
 
-
 const AddTodo:React.FC<IAddTodo> = ({addTodo}) => {
   const [task, setTask] = useState("");
 
@@ -30,7 +29,7 @@ const AddTodo:React.FC<IAddTodo> = ({addTodo}) => {
         maxWidth: 600,
         mx: "auto",
         mt: 3,
-        backgroundColor: "#f9f9f9",
+        background: "linear-gradient(90deg, #7310ec, #ff2bbf)",
       }}
     >
       <Box
@@ -41,35 +40,37 @@ const AddTodo:React.FC<IAddTodo> = ({addTodo}) => {
           flexDirection: { xs: "column", sm: "row" },
           alignItems: "center",
           gap: 2,
+          
         }}
       >
         <TextField
-          value={task}
-          //   onChange={(e)=>setTask(e.target.value)}
-          onChange={handleChange}
-          placeholder="Enter a task..."
-          variant="outlined"
-          fullWidth
-          sx={{
-            flex: 1,
-            "& .MuiOutlinedInput-root": {
-              borderRadius: 2,
-              backgroundColor: "#fff",
-            },
-          }}
-        />
-        <Button  type="submit"
-          variant="contained"
-          color="primary"
-          sx={{
-            px: 3,
-            py: 1.5,
-            borderRadius: 2,
-            fontWeight: "bold",
-            textTransform: "none",
-          }}>SAVE</Button>
-      </Box>
-    </Paper>
+      value={task}
+      //   onChange={(e)=>setTask(e.target.value)}
+      onChange={handleChange}
+      placeholder="Enter a task..."
+      variant="outlined"
+      fullWidth
+      sx={{
+        flex: 1,
+      "& .MuiOutlinedInput-root": {
+          borderRadius: 2,
+          backgroundColor: "#e1bee7",
+        },
+      }}
+    />
+    <Button  type="submit"
+      variant="contained"
+      
+      sx={{
+        px: 3,
+        py: 1.5,
+        borderRadius: 2,
+        fontWeight: "bold",
+        textTransform: "none",
+        background: "linear-gradient(90deg, #7310ec, #ff2bd1)"
+      }}>SAVE</Button>
+  </Box>
+</Paper>
   );
 };
 
