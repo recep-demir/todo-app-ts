@@ -1,11 +1,10 @@
-interface ITodoList{
-    task:string;
-    isDone:boolean;
-    id:string;
-}
 
 interface ITodo{
-    id:string;
-    isDone:boolean;
-    task:string;
+    task:string,
+    isDone:boolean,
+    id:string
 }
+
+type AddFn=(task:string)=>Promise<void>
+type ToggleFn=(todo:ITodo)=>Promise<void>
+type DeleteFn=(id:string | number)=>Promise<void>
