@@ -13,11 +13,11 @@ app.use(express.json());
 
 const cors = require('cors');
 app.use(cors({
-    origin: ['https://example.com', 'http://localhost:5173'], 
+    origin: ['https://example.com', 'http://localhost:5173', 'http://localhost:3000'], 
 }));
 
 app.all('/', (req, res) => {
-    res.send('WELCOME TO TODO API')
+    res.send('WELCOME TO FS-TS-TODO API')
 });
 
 app.use('/todos', require('./routes/todo.router'));

@@ -1,18 +1,14 @@
-
 "use strict";
 
-
 const router = require("express").Router();
-
 const todo = require('../controllers/todo.controller');
 
-
-
-router.route('/todos')
+// Buradaki '/todos' yazılarını sildik, sadece '/' ve '/:id' bıraktık
+router.route('/')
     .get(todo.list)
     .post(todo.create);
 
-router.route('/todos/:id')
+router.route('/:id')
     .get(todo.read)
     .put(todo.update)
     .delete(todo.delete);
