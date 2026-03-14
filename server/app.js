@@ -13,7 +13,7 @@ app.use(express.json());
 
 const cors = require('cors');
 app.use(cors({
-    origin: ['https://example.com', 'http://localhost:5173', 'http://localhost:3000'], 
+    origin: ['https://example.com', 'http://localhost:5173', 'http://localhost:3000', 'https://typescript-fs-todo-app.netlify.app/'], 
 }));
 
 app.all('/', (req, res) => {
