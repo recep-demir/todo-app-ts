@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const url = "https://6350438378563c1d82bde74a.mockapi.io/api/task";
+  const url = "http://localhost:8000/todos";
 
   interface ITodo{
     id:string;
@@ -24,7 +24,7 @@ const Home = () => {
   const getTodo = async () => {
     const { data } = await axios(url);
     console.log(data);
-    setTodos(data)
+    setTodos(data.result.rows);
   };
 
 
