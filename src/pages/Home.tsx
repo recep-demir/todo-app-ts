@@ -7,54 +7,56 @@ import { useEffect, useState } from "react";
 const Home = () => {
   const url = "http://localhost:8000/todos";
 
-  interface ITodo{
-    id:string;
-    isDone:boolean;
-    task:string;
-  }
-
   const [todos, setTodos] = useState<ITodo[]>([]);
 
-//   const [todos, setTodos] = useState({
-//     id:"",
-//     isDone:false,
-//     task:""
-//   });
-
-  const getTodo = async () => {
+const getTodo = async () => {
+  try {
     const { data } = await axios(url);
-    console.log(data);
-    setTodos(data.result.rows);
-  };
+    
+    // Backend'den gelen veriyi (title), Frontend'in beklediği yapıya (task) çeviriyoruz:
+    const formattedTodos = data.result.rows.map((item: any) => ({
+      id: item.id,
+      task: item.title, // Backend'den gelen title -> Frontend'in task'ı oldu
+      isDone: item.isDone,
+      createdAt: item.createdAt,
+      updatedAt: item.updatedAt
+    }));
 
-
-//   type AddFn=(task:string)=>Promise<void>
-// Bu type bilgisi typescript.d.ts
-
-  const addTodo:AddFn=async(task)=>{
-    try {
-        await axios.post(url,{task,isDone:false})
-        getTodo()
-    } catch (error) {
-        console.log(error)
-    }
+    setTodos(formattedTodos);
+  } catch (error) {
+    console.log("Veri çekme hatası:", error);
   }
+};
 
-  const toggleTodo:ToggleFn=async(todo)=>{
-    try {
-        await axios.put(`${url}/${todo.id}`,{...todo,isDone:!todo.isDone})
-        getTodo()
-    } catch (error) {
-        console.log(error)
-    }
+const addTodo: AddFn = async (task) => {
+  try {
+    // Backend'e gönderirken 'title' ismini kullanıyoruz (500 hatasını çözer):
+    await axios.post(url, { title: task, isDone: false });
+    getTodo();
+  } catch (error) {
+    console.log("Ekleme hatası:", error);
   }
+};
 
- const deleteTodo:DeleteFn=async(id)=>{
+const toggleTodo: ToggleFn = async (todo) => {
+  try {
+    // Backend'e geri gönderirken yine 'task'ı 'title' yaparak gönderiyoruz:
+    await axios.put(`${url}/${todo.id}`, { 
+      title: todo.task, 
+      isDone: !todo.isDone 
+    });
+    getTodo();
+  } catch (error) {
+    console.log("Güncelleme hatası:", error);
+  }
+};
+
+ const deleteTodo: DeleteFn = async (id) => {
     try {
-        await axios.delete(`${url}/${id}`)
-        getTodo()
+        await axios.delete(`${url}/${id}`);
+        getTodo();
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
  }
 
