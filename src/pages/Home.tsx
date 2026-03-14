@@ -5,7 +5,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const url = "http://localhost:8000/todos";
+  const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
+  const url = `${baseUrl}/todos`;
 
   const [todos, setTodos] = useState<ITodo[]>([]);
 
@@ -13,10 +14,9 @@ const getTodo = async () => {
   try {
     const { data } = await axios(url);
     
-    // Backend'den gelen veriyi (title), Frontend'in beklediği yapıya (task) çeviriyoruz:
     const formattedTodos = data.result.rows.map((item: any) => ({
       id: item.id,
-      task: item.title, // Backend'den gelen title -> Frontend'in task'ı oldu
+      task: item.title,
       isDone: item.isDone,
       createdAt: item.createdAt,
       updatedAt: item.updatedAt
@@ -30,7 +30,7 @@ const getTodo = async () => {
 
 const addTodo: AddFn = async (task) => {
   try {
-    // Backend'e gönderirken 'title' ismini kullanıyoruz (500 hatasını çözer):
+    
     await axios.post(url, { title: task, isDone: false });
     getTodo();
   } catch (error) {
@@ -40,7 +40,7 @@ const addTodo: AddFn = async (task) => {
 
 const toggleTodo: ToggleFn = async (todo) => {
   try {
-    // Backend'e geri gönderirken yine 'task'ı 'title' yaparak gönderiyoruz:
+    
     await axios.put(`${url}/${todo.id}`, { 
       title: todo.task, 
       isDone: !todo.isDone 
