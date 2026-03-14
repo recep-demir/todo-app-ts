@@ -31,7 +31,7 @@ app.use(express.json())
 //   }
 const cors = require('cors');
 app.use(cors({
-    origin: ['htttps://example.com', 'http://localhost:3000'], // Allow these origins
+    origin: ['htttps://example.com', 'http://localhost:5173'], // Allow these origins
 }));
 
 /* ------------------------------------------------------- */
