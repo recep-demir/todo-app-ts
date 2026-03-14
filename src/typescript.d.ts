@@ -1,7 +1,11 @@
 interface ITodo {
-  id: string;
-  task: string;
+  id: string | number; 
+  task: string;        
+  description?: string;
+  priority?: number;
   isDone: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 type AddFn = (task: string) => Promise<void>;
