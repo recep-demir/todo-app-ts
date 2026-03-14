@@ -1,3 +1,5 @@
+[Live Demo](https://typescript-fs-todo-app.netlify.app/)
+
 # FS-TS Todo App (React + TypeScript + Node.js + PostgreSQL)
 
 A fullstack Todo application built with:
@@ -16,8 +18,8 @@ It is designed with Material UI components, optimized with Vite, and powered by 
 
 > Add your links here after deployment:
 
-- **Frontend (Netlify/Vercel):** `https://your-frontend-url.com`
-- **Backend API (Render/Railway):** `https://your-api-url.com`
+- **Frontend (Netlify/Vercel):** `https://typescript-fs-todo-app.netlify.app/`
+- **Backend API (Render/Railway):** `https://todo-app-ts-9ihk.onrender.com/`
 
 ---
 
