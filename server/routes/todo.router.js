@@ -8,7 +8,6 @@ const todo = require('../controllers/todo.controller');
 
 
 
-
 router.route('/todos')
     .get(todo.list)
     .post(todo.create);
